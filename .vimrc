@@ -1,7 +1,6 @@
 set nocompatible
 set pastetoggle=<F2>
-set clipboard=unnamed
-set mouse=a
+set clipboard=unnamedplus
 let mapleader = ";"
 map <Leader>j <esc>:tabnext<CR>
 map <Leader>k <esc>:tabprevious<CR>
@@ -26,6 +25,10 @@ set smarttab
 set shiftround
 set expandtab
 
+set nobackup
+set nowritebackup
+set noswapfile
+
 """ Bundles
 filetype off
 
@@ -48,17 +51,9 @@ set wildignore+=*/env/*
 " NerdTree
 nnoremap <F12> :NERDTreeToggle<CR>
 
-" Python-mode
-" let g:pymode_rope=1
-let g:ropevim_enable_shortcuts=1
-let g:pymode_rope_goto_def_newwin="vnew"
-let g:pymode_rope_extended_complete=1
-let g:pymode_breakpoint=0
-let g:pymode_syntax=1
-let g:pymode_syntax_builtin_objs=0
-let g:pymode_syntax_builtin_funcs=0
-
-noremap <Leader>b Oimport ipdb; ipdb.set_trace() #  <-- bReAk<C-c>
+" Jedi vim settings
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
 
 " omnicomplete on j/k
 function! OmniPopup(action)
